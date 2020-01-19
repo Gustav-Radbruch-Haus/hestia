@@ -6,8 +6,11 @@ class Dorm(models.Model):
     short = models.CharField(max_length=16)
     internal_name = models.CharField(max_length=32)
     address_1 = models.CharField(max_length=128)
-    address_2 = models.CharField(max_length=128)
+    address_2 = models.CharField(max_length=128, null=True, blank=True)
     zipcode = models.CharField(max_length=16)
     city = models.CharField(max_length=128)
     province = models.CharField(max_length=128)
     country = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.city + ":  " + self.name
